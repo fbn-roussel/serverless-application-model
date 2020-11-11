@@ -334,6 +334,7 @@ class S3(PushEventSource):
             event_types = self.event_types["Ref"]
         if isinstance(self.Events, string_types):
             event_types = [self.Events]
+            
 
         event_mappings = []
         for event_type in event_types:
