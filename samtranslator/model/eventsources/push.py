@@ -330,11 +330,8 @@ class S3(PushEventSource):
             base_event_mapping["Filter"] = self.Filter
 
         event_types = self.Events
-        if isinstance(self.event_types, dict) and "Ref" in self.event_types:
-            event_types = self.event_types["Ref"]
-        if isinstance(self.Events, string_types):
+        if isinstance(self.Events, string_types) or isinstance(self.Events, dict) and "Ref" in self.Events:
             event_types = [self.Events]
-            
 
         event_mappings = []
         for event_type in event_types:
